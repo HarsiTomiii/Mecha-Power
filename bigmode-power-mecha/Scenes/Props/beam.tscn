@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d265irar5schq"]
+
+[ext_resource type="Script" path="res://Scripts/beam.gd" id="1_hhecs"]
+[ext_resource type="Texture2D" uid="uid://bstkivql0m4ym" path="res://icon.svg" id="2_e41yd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_poxsb"]
+height = 130.0
+
+[node name="Beam" type="Area2D"]
+script = ExtResource("1_hhecs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.171875, 1)
+texture = ExtResource("2_e41yd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_poxsb")

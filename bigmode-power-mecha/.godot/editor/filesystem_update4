@@ -1,0 +1,7 @@
+res://Scenes/player.tscn
+res://Scripts/player.gd
+res://Scenes/Levels/level.tscn
+res://Scenes/gui.tscn
+res://Scenes/Props/beam.tscn
+res://Scripts/beam.gd
+res://Scripts/global.gd
