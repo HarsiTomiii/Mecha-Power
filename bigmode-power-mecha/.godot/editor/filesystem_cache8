@@ -1,0 +1,24 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1737808280
+icon.svg::CompressedTexture2D::3689665631024651264::1737807701::1737807707::1::::<><>::
+::res://Assets/::1737808268
+Read Me.txt::TextFile::-1::1737808267::0::1::::<><>::
+tileset x1.png::CompressedTexture2D::8723789896479019242::1737808267::1737808267::1::::<><>::
+tileset x2.png::CompressedTexture2D::19020819985971159::1737808267::1737808268::1::::<><>::
+tileset x3.png::CompressedTexture2D::4361466004875962726::1737808267::1737808268::1::::<><>::
+::res://Assets/Players/::1737808267
+8x13 Cells.txt::TextFile::-1::1737808267::0::1::::<><>::
+players blue x1.png::CompressedTexture2D::8452392065165713966::1737808267::1737808267::1::::<><>::
+players blue x2.png::CompressedTexture2D::6645948671905089030::1737808267::1737808267::1::::<><>::
+players blue x3.png::CompressedTexture2D::8420345722315386640::1737808267::1737808267::1::::<><>::
+::res://Assets/Players/No Outlines/::1737808267
+players blue x1.png::CompressedTexture2D::472577839162618893::1737808267::1737808267::1::::<><>::
+players blue x2.png::CompressedTexture2D::1397638742447226937::1737808267::1737808267::1::::<><>::
+players blue x3.png::CompressedTexture2D::5325378259583029129::1737808267::1737808267::1::::<><>::
+::res://Assets/UI/::1737808267
+20x11 Cells.txt::TextFile::-1::1737808267::0::1::::<><>::
+ui x1.png::CompressedTexture2D::2019795439346275367::1737808267::1737808267::1::::<><>::
+ui x2.png::CompressedTexture2D::8881049458903101321::1737808267::1737808267::1::::<><>::
+ui x3.png::CompressedTexture2D::6716855278511368820::1737808267::1737808267::1::::<><>::
+::res://Bigmode-Power-Mecha/::1737807788
+::res://Scripts/::1737808280
