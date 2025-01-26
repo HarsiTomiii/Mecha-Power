@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c06ypj5aoja3y"]
+
+[ext_resource type="Script" path="res://Scripts/ore_node.gd" id="1_13j8d"]
+[ext_resource type="Texture2D" uid="uid://bxe2fvk8pibcy" path="res://Assets/Terrain/Ground/Tilemap_Elevation.png" id="1_hn4am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siesa"]
+size = Vector2(64, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f471n"]
+size = Vector2(64, 58)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0x64y"]
+bg_color = Color(0, 0, 0, 0.439216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tndq"]
+bg_color = Color(0.333333, 1, 0, 1)
+
+[node name="OreNode" type="StaticBody2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_13j8d")
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="."]
+position = Vector2(32, -29.5)
+shape = SubResource("RectangleShape2D_siesa")
+debug_color = Color(0.973341, 0, 0.434678, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 16
+
+[node name="MineZone" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, -29)
+shape = SubResource("RectangleShape2D_f471n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, -32)
+texture = ExtResource("1_hn4am")
+hframes = 4
+vframes = 8
+frame = 3
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_top = -59.0
+offset_right = 64.0
+offset_bottom = -51.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0x64y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4tndq")
+value = 50.0
+show_percentage = false
+
+[node name="HealthBarHide" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="HealthBarHide" to="." method="_on_health_bar_hide_timeout"]

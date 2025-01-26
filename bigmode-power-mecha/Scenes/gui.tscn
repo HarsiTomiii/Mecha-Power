@@ -3,35 +3,45 @@
 [node name="GUI" type="CanvasLayer"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-modulate = Color(0, 0.490196, 0.858824, 0.415686)
-offset_right = 1152.0
-offset_bottom = 26.0
+modulate = Color(0.129412, 0.243137, 0.317647, 0.654902)
+offset_right = 327.0
+offset_bottom = 182.0
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="StatsContainer" type="VBoxContainer" parent="."]
 offset_left = 5.0
 offset_top = 4.0
 offset_right = 268.0
 offset_bottom = 44.0
 
-[node name="DayNight" type="ColorRect" parent="VBoxContainer"]
+[node name="DayNight" type="ColorRect" parent="StatsContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Health" type="ProgressBar" parent="VBoxContainer"]
+[node name="HealthBar" type="ProgressBar" parent="StatsContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 value = 65.0
 show_percentage = false
 
-[node name="Charge" type="ProgressBar" parent="VBoxContainer"]
+[node name="ChargeBar" type="ProgressBar" parent="StatsContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 value = 80.0
 show_percentage = false
 
-[node name="OreLabel" type="Label" parent="VBoxContainer"]
+[node name="OreContainer" type="HBoxContainer" parent="StatsContainer"]
 layout_mode = 2
-text = "Ore: 444"
+
+[node name="OreLabel" type="Label" parent="StatsContainer/OreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Ore:"
+
+[node name="OreAmount" type="Label" parent="StatsContainer/OreContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2

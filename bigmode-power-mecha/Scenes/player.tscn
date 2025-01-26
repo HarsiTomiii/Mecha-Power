@@ -3,17 +3,33 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8b3s6"]
 [ext_resource type="Texture2D" uid="uid://bstkivql0m4ym" path="res://icon.svg" id="2_5n8s6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sm14"]
-size = Vector2(136, 144)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mxn32"]
+radius = 66.7533
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 15
 script = ExtResource("1_8b3s6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8sm14")
+shape = SubResource("CircleShape2D_mxn32")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("2_5n8s6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+
+[node name="Cannon_1" type="Marker2D" parent="."]
+
+[node name="Cannon_2" type="Marker2D" parent="."]
+
+[node name="PhotonCooldown" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="ChargeDrainTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="ChargeDrainTimer" to="." method="_on_charge_drain_timer_timeout"]

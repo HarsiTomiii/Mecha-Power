@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d265irar5schq"]
+
+[ext_resource type="Script" path="res://Scripts/photon.gd" id="1_bq6h7"]
+[ext_resource type="Texture2D" uid="uid://chd2brma2ww0b" path="res://Assets/Circle.png" id="2_tnr3y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulho8"]
+radius = 7.0
+
+[node name="Photon" type="Area2D" groups=["fighter", "miner"]]
+top_level = true
+collision_layer = 16
+collision_mask = 255
+script = ExtResource("1_bq6h7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_tnr3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_ulho8")

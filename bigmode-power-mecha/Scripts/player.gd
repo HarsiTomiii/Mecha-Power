@@ -1,14 +1,33 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 330.0
+@export var speed : float = 660.0
 @export var health : int = 150
 @export var max_health : int = 200
-@export var charge_level : int = 50
-@export var max_charge_level : int = 100
+@export var charge_level : float = 50.0
+@export var max_charge_level : float = 100.0
 
+@onready var photon_scene: PackedScene = preload("res://Scenes/Props/photon.tscn")
+@onready var photon_cooldown: Timer = $PhotonCooldown
+@onready var charge_drain_timer: Timer = $ChargeDrainTimer
+
+@onready var cannon_1: Marker2D = $Cannon_1
+@onready var cannon_2: Marker2D = $Cannon_2
+
+@onready var gui: CanvasLayer = %GUI
+
+var is_shooting : bool = false
+
+func _ready() -> void:
+	charge_level = max_charge_level
+	
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("shooting_left") and photon_cooldown.is_stopped():
+		is_shooting = true
+		shooting(Global.photon_damage)
+	if Input.is_action_just_released("shooting_left"):
+		is_shooting = false
 	
 	# Getting input and translating it to movement vector
 	var input_direction: Vector2 = Input.get_vector("left","right","up","down")
@@ -17,14 +36,36 @@ func _physics_process(delta: float) -> void:
 	var mouse_position: Vector2 = get_global_mouse_position()
 	look_at(mouse_position)
 	
-	velocity = input_direction * speed
 	
+	if is_shooting:
+		velocity = input_direction * speed * 0.5 #decreasing movement speed while shooting
+	else:
+		velocity = input_direction * speed
+		
 	move_and_slide()
+	charge_level_update()
+
 
 func shooting(damage) -> void:
-	pass
+	photon_cooldown.start()
+	var photon_temp = photon_scene.instantiate()
+	var target_position = (get_global_mouse_position() - self.global_position).normalized()
+	var final_position = get_global_mouse_position()
+	photon_temp.initial_postition = self.global_position
+	photon_temp.final_position = final_position
+	photon_temp.direction = target_position
+	photon_temp.look_at(target_position)
+	photon_temp.damage = Global.photon_damage
+	#add here a marker to target form
+	photon_temp.global_position = cannon_1.global_position
+	get_node("../Projectiles").add_child(photon_temp)
 
-#TODO make a pickup radius
-#TODO shooting the beam
-#TODO connecting to power source
-#TODO depositing ore
+
+
+func charge_level_update() -> void:
+	gui.get_node("StatsContainer/ChargeBar").value = charge_level
+
+	
+
+func _on_charge_drain_timer_timeout() -> void:
+	charge_level -= charge_drain_timer.wait_time * 1 #multiplier is how many charge per second 
