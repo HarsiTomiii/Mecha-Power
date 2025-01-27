@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 660.0
+@export var speed : float = 600.0
 @export var health : int = 150
 @export var max_health : int = 200
 @export var charge_level : float = 50.0
@@ -69,3 +69,11 @@ func charge_level_update() -> void:
 
 func _on_charge_drain_timer_timeout() -> void:
 	charge_level -= charge_drain_timer.wait_time * 1 #multiplier is how many charge per second 
+
+func deposit_ore():
+	for i in Global.collected_ore:
+		await get_tree().create_timer(Global.deposit_time_tick).timeout
+		Global.collected_ore -= 1
+		Global.deposited_ore += 1
+		get_node("../GUI").get_node("StatsContainer").get_node("OreContainer").get_node("OreAmount").text = str(Global.deposited_ore)
+	print("depositing")

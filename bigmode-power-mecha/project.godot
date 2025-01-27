@@ -72,6 +72,7 @@ shooting_right={
 2d_physics/layer_3="Nodes"
 2d_physics/layer_4="Terrain"
 2d_physics/layer_5="Projectiles"
+2d_physics/layer_6="Buildings"
 
 [rendering]
 

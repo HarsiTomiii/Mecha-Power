@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @onready var node_health: int = 100
-@onready var ore_amount: int = randi_range(2,3)
+@onready var ore_amount: int = randi_range(20,33)
 @onready var health_bar: ProgressBar = %HealthBar
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		if node_health <= 0:
 			Global.collected_ore += ore_amount
-			get_node("../../GUI").get_node("StatsContainer").get_node("OreContainer").get_node("OreAmount").text = str(Global.collected_ore)
+			
 			queue_free()
 	pass # Replace with function body.
 

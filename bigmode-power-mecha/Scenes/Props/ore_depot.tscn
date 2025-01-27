@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg65q62kaeauq"]
+
+[ext_resource type="Script" path="res://Scripts/ore_depot.gd" id="1_0uy8g"]
+[ext_resource type="Texture2D" uid="uid://duk4mlq0u5ob8" path="res://Assets/Buildings/building_2/building_2 Sprite.png" id="1_rqu61"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ak8y1"]
+radius = 116.039
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1u7b"]
+radius = 71.007
+
+[node name="OreDepot" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_0uy8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rqu61")
+offset = Vector2(83, -78)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+y_sort_enabled = true
+polygon = PackedVector2Array(81, -2, 111, -17, 155, -49, 156, -77, 3, -77, 3, -77, 9, -57, 35, -44, 47, -17)
+
+[node name="DepotArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepotArea"]
+position = Vector2(85, -84)
+shape = SubResource("CircleShape2D_ak8y1")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(85, -85)
+shape = SubResource("CircleShape2D_w1u7b")
+debug_color = Color(0.973489, 0, 0.433622, 0.42)
+
+[connection signal="body_entered" from="DepotArea" to="." method="_on_depot_area_body_entered"]
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_area_entered"]
