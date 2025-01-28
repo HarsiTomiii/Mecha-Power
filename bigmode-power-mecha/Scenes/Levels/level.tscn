@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cvpqe2xfkx5vb"]
+[gd_scene load_steps=13 format=4 uid="uid://cvpqe2xfkx5vb"]
 
 [ext_resource type="PackedScene" uid="uid://cm43cu6p2wysq" path="res://Scenes/player.tscn" id="1_64llc"]
 [ext_resource type="Texture2D" uid="uid://bxe2fvk8pibcy" path="res://Assets/Terrain/Ground/Tilemap_Elevation.png" id="1_x1unt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://jumh65lh46d7" path="res://Scenes/gui.tscn" id="4_rvsns"]
 [ext_resource type="PackedScene" uid="uid://c06ypj5aoja3y" path="res://Scenes/Props/ore_node.tscn" id="5_m2iwi"]
 [ext_resource type="PackedScene" uid="uid://dg65q62kaeauq" path="res://Scenes/Props/ore_depot.tscn" id="6_3055s"]
+[ext_resource type="PackedScene" uid="uid://qrx6pcs4cnlf" path="res://Scenes/Props/recharge_station.tscn" id="7_6e8xc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sahyf"]
 texture = ExtResource("2_jvcia")
@@ -274,4 +275,7 @@ position = Vector2(1088, 64)
 position = Vector2(1024, 256)
 
 [node name="OreDepot" parent="." instance=ExtResource("6_3055s")]
-position = Vector2(448, 768)
+position = Vector2(640, 768)
+
+[node name="RechargeStation" parent="." instance=ExtResource("7_6e8xc")]
+position = Vector2(1299, 518)

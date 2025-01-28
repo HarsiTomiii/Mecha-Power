@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://jumh65lh46d7"]
+[gd_scene load_steps=2 format=3 uid="uid://jumh65lh46d7"]
+
+[ext_resource type="Script" path="res://Scripts/gui.gd" id="1_ql7wp"]
 
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_ql7wp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0.129412, 0.243137, 0.317647, 0.654902)
@@ -8,40 +11,59 @@ offset_right = 327.0
 offset_bottom = 182.0
 size_flags_horizontal = 3
 
-[node name="StatsContainer" type="VBoxContainer" parent="."]
+[node name="WorldStats" type="VBoxContainer" parent="."]
 offset_left = 5.0
 offset_top = 4.0
 offset_right = 268.0
 offset_bottom = 44.0
 
-[node name="DayNight" type="ColorRect" parent="StatsContainer"]
+[node name="DayNight" type="ColorRect" parent="WorldStats"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HealthBar" type="ProgressBar" parent="StatsContainer"]
-custom_minimum_size = Vector2(0, 25)
-layout_mode = 2
-value = 65.0
-show_percentage = false
-
-[node name="ChargeBar" type="ProgressBar" parent="StatsContainer"]
+[node name="ChargeBar" type="ProgressBar" parent="WorldStats"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 value = 80.0
-show_percentage = false
 
-[node name="OreContainer" type="HBoxContainer" parent="StatsContainer"]
+[node name="OreContainer" type="HBoxContainer" parent="WorldStats"]
 layout_mode = 2
 
-[node name="OreLabel" type="Label" parent="StatsContainer/OreContainer"]
+[node name="OreLabel" type="Label" parent="WorldStats/OreContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Ore:"
 
-[node name="OreAmount" type="Label" parent="StatsContainer/OreContainer"]
+[node name="OreAmount" type="Label" parent="WorldStats/OreContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
+
+[node name="MinerStats" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -263.0
+offset_bottom = 142.0
+grow_horizontal = 0
+
+[node name="HealthBar" type="ProgressBar" parent="MinerStats"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+value = 65.0
+fill_mode = 1
+
+[node name="ChargeBar" type="ProgressBar" parent="MinerStats"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+value = 80.0
+fill_mode = 1
+
+[node name="OreMined" type="ProgressBar" parent="MinerStats"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+value = 80.0
+fill_mode = 1

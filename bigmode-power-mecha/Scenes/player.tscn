@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm43cu6p2wysq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8b3s6"]
-[ext_resource type="Texture2D" uid="uid://bstkivql0m4ym" path="res://icon.svg" id="2_5n8s6"]
+[ext_resource type="Texture2D" uid="uid://dh1dg4id3jkeb" path="res://Assets/Kenney Simple Space/PNG/ship_sidesB.png" id="2_tiqsc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxn32"]
 radius = 66.7533
@@ -13,9 +13,15 @@ script = ExtResource("1_8b3s6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mxn32")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.227451, 0.227451, 0.227451, 0.431373)
+position = Vector2(-9, 8)
+rotation = 1.5708
+texture = ExtResource("2_tiqsc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("2_5n8s6")
+texture = ExtResource("2_tiqsc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

@@ -63,17 +63,18 @@ func shooting(damage) -> void:
 
 
 func charge_level_update() -> void:
-	gui.get_node("StatsContainer/ChargeBar").value = charge_level
+	gui.get_node("MinerStats/ChargeBar").value = charge_level
 
-	
-
+#here we constantly reduce the charging
 func _on_charge_drain_timer_timeout() -> void:
 	charge_level -= charge_drain_timer.wait_time * 1 #multiplier is how many charge per second 
 
 func deposit_ore():
-	for i in Global.collected_ore:
+	var ore_to_deposit: int = Global.collected_ore
+	Global.collected_ore = 0
+	get_node("../GUI").get_node("MinerStats").get_node("OreMined").value = Global.collected_ore
+	for i in ore_to_deposit:
 		await get_tree().create_timer(Global.deposit_time_tick).timeout
-		Global.collected_ore -= 1
+		ore_to_deposit -= 1
 		Global.deposited_ore += 1
-		get_node("../GUI").get_node("StatsContainer").get_node("OreContainer").get_node("OreAmount").text = str(Global.deposited_ore)
-	print("depositing")
+		get_node("../GUI").get_node("WorldStats").get_node("OreContainer").get_node("OreAmount").text = str(Global.deposited_ore)

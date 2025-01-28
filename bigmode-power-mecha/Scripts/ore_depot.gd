@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+#currently not in use
+#var depot_capacity: int = 500
 
 
 func _on_collision_area_area_entered(area: Area2D) -> void:

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://qrx6pcs4cnlf"]
+
+[ext_resource type="Texture2D" uid="uid://kpfw57mtiwb3" path="res://Assets/Buildings/building_1/building_1 animation.png" id="1_a56ke"]
+[ext_resource type="Script" path="res://Scripts/recharge_station.gd" id="1_msmvl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbris"]
+atlas = ExtResource("1_a56ke")
+region = Rect2(0, 0, 92, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gvk4"]
+atlas = ExtResource("1_a56ke")
+region = Rect2(92, 0, 92, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mynpg"]
+atlas = ExtResource("1_a56ke")
+region = Rect2(184, 0, 92, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhrab"]
+atlas = ExtResource("1_a56ke")
+region = Rect2(276, 0, 92, 124)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pl6ps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbris")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gvk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mynpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhrab")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4l1g3"]
+radius = 55.0364
+
+[node name="RechargeStation" type="StaticBody2D"]
+collision_mask = 255
+script = ExtResource("1_msmvl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pl6ps")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.399085
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-24, 56, -5, 61, 15, 57, 33, 47, 32, 30, 13, 27, -11, 26, -25, 30, -30, 42)
+
+[node name="RechargeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RechargeArea"]
+position = Vector2(-3, 44)
+shape = SubResource("CircleShape2D_4l1g3")
+
+[node name="RechargeTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="RechargeArea" to="." method="_on_recharge_area_body_entered"]
