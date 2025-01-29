@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var max_health : int = 200
 @export var charge_level : float = 50.0
 @export var max_charge_level : float = 100.0
+@export var drain_rate : float = 1.0 # how many charge per second 
 
 @onready var photon_scene: PackedScene = preload("res://Scenes/Props/photon.tscn")
 @onready var photon_cooldown: Timer = $PhotonCooldown
@@ -17,6 +18,7 @@ extends CharacterBody2D
 @onready var gui: CanvasLayer = %GUI
 
 var is_shooting : bool = false
+
 
 func _ready() -> void:
 	charge_level = max_charge_level
@@ -59,22 +61,39 @@ func shooting(damage) -> void:
 	#add here a marker to target form
 	photon_temp.global_position = cannon_1.global_position
 	get_node("../Projectiles").add_child(photon_temp)
+	charge_level -= 1
 
 
 
 func charge_level_update() -> void:
 	gui.get_node("MinerStats/ChargeBar").value = charge_level
+	gui.get_node("WorldStats/ChargeBar").value = Global.current_base_charge
 
 #here we constantly reduce the charging
 func _on_charge_drain_timer_timeout() -> void:
-	charge_level -= charge_drain_timer.wait_time * 1 #multiplier is how many charge per second 
+	charge_level -= charge_drain_timer.wait_time * drain_rate 
 
 func deposit_ore():
 	var ore_to_deposit: int = Global.collected_ore
 	Global.collected_ore = 0
-	get_node("../GUI").get_node("MinerStats").get_node("OreMined").value = Global.collected_ore
+	gui.get_node("MinerStats/OreMined").value = Global.collected_ore
 	for i in ore_to_deposit:
 		await get_tree().create_timer(Global.deposit_time_tick).timeout
 		ore_to_deposit -= 1
 		Global.deposited_ore += 1
-		get_node("../GUI").get_node("WorldStats").get_node("OreContainer").get_node("OreAmount").text = str(Global.deposited_ore)
+		gui.get_node("WorldStats/OreContainer/OreAmount").text = str(Global.deposited_ore)
+
+func recharging():
+	if Global.current_base_charge <= 0:
+		pass
+	else:
+		var missing_charge : int = max_charge_level - charge_level
+		if missing_charge > Global.current_base_charge:
+			missing_charge = Global.current_base_charge
+		else:
+			missing_charge
+		for i in missing_charge:
+			await get_tree().create_timer(Global.deposit_time_tick).timeout
+			charge_level += 1
+			Global.current_base_charge -= 1
+			charge_level_update()

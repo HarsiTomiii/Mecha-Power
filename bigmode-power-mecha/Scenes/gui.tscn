@@ -32,8 +32,8 @@ layout_mode = 2
 
 [node name="OreLabel" type="Label" parent="WorldStats/OreContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Ore:"
+theme_override_font_sizes/font_size = 29
+text = "Deposited Ore:"
 
 [node name="OreAmount" type="Label" parent="WorldStats/OreContainer"]
 layout_mode = 2

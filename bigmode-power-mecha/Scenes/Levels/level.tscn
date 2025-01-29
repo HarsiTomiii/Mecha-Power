@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://cvpqe2xfkx5vb"]
+[gd_scene load_steps=14 format=4 uid="uid://cvpqe2xfkx5vb"]
 
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_3yevq"]
 [ext_resource type="PackedScene" uid="uid://cm43cu6p2wysq" path="res://Scenes/player.tscn" id="1_64llc"]
 [ext_resource type="Texture2D" uid="uid://bxe2fvk8pibcy" path="res://Assets/Terrain/Ground/Tilemap_Elevation.png" id="1_x1unt"]
 [ext_resource type="Texture2D" uid="uid://dcgw4ooa57t6w" path="res://Assets/Terrain/Ground/Tilemap_Flat.png" id="2_jvcia"]
@@ -211,6 +212,7 @@ sources/0 = SubResource("TileSetAtlasSource_elklw")
 sources/1 = SubResource("TileSetAtlasSource_55lmx")
 
 [node name="Level" type="Node"]
+script = ExtResource("1_3yevq")
 
 [node name="Soil" type="TileMapLayer" parent="."]
 z_index = -5

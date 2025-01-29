@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @onready var node_health: int = 100
-@onready var ore_amount: int = randi_range(2,5)
+@onready var ore_amount: int = randi_range(220,500)
 @onready var health_bar: ProgressBar = %HealthBar
 
 func _ready() -> void:

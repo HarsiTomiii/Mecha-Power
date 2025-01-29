@@ -17,3 +17,4 @@ var deposit_time_tick: float = 0.05 #depo time second per ore
 var number_of_batteries: int = 1
 var max_base_charge: int = 100 * number_of_batteries
 var current_base_charge: int = 50
+var recharge_time_tick: float = 0.05 #1 charge gain second

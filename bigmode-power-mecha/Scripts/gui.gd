@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 
+func update_gui():
+	$WorldStats/ChargeBar.value = Global.current_base_charge
+	$WorldStats/OreContainer/OreAmount.text = str(Global.deposited_ore)
 
 
 func _ready() -> void:

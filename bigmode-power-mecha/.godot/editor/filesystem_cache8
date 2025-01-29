@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1738082644
+::res://::1738169534
 icon.svg::CompressedTexture2D::3689665631024651264::1737807701::1737807707::1::::<><>::
 ::res://Assets/::1738082542
 Circle.png::CompressedTexture2D::5271998462184785035::1737891450::1737891512::1::::<><>::
@@ -52,7 +52,7 @@ openning animation sheet.png::CompressedTexture2D::5877273233540944315::17308890
 18.png::CompressedTexture2D::6717025485350917410::1737815366::1737815375::1::::<><>::
 ::res://Assets/Kenney Particle Pack/::1738082543
 License.txt::TextFile::-1::1738067549::0::1::::<><>::
-::res://Assets/Kenney Particle Pack/PNG (Transparent)/::1738082550
+::res://Assets/Kenney Particle Pack/PNG (Transparent)/::1738082647
 circle_01.png::CompressedTexture2D::9001712837170749377::1738067547::1738082646::1::::<><>::
 circle_02.png::CompressedTexture2D::1142191072348166955::1738067547::1738082646::1::::<><>::
 circle_03.png::CompressedTexture2D::2165284864312609506::1738067547::1738082646::1::::<><>::
@@ -133,7 +133,7 @@ window_01.png::CompressedTexture2D::8884331402556043960::1738067548::1738082646:
 window_02.png::CompressedTexture2D::4776021752852426783::1738067548::1738082646::1::::<><>::
 window_03.png::CompressedTexture2D::6239339465563216567::1738067548::1738082646::1::::<><>::
 window_04.png::CompressedTexture2D::6949874687119957462::1738067548::1738082646::1::::<><>::
-::res://Assets/Kenney Particle Pack/PNG (Transparent)/Rotated/::1738082555
+::res://Assets/Kenney Particle Pack/PNG (Transparent)/Rotated/::1738082646
 flame_05_rotated.png::CompressedTexture2D::8587350990160871974::1738067548::1738082646::1::::<><>::
 flame_06_rotated.png::CompressedTexture2D::5114402452052949568::1738067548::1738082646::1::::<><>::
 muzzle_01_rotated.png::CompressedTexture2D::1481942019875515606::1738067548::1738082646::1::::<><>::
@@ -152,7 +152,7 @@ trace_06_rotated.png::CompressedTexture2D::5870524704177920927::1738067549::1738
 trace_07_rotated.png::CompressedTexture2D::4811041033071337758::1738067549::1738082646::1::::<><>::
 ::res://Assets/Kenney Simple Space/::1738082547
 License.txt::TextFile::-1::1738067387::0::1::::<><>::
-::res://Assets/Kenney Simple Space/PNG/::1738082556
+::res://Assets/Kenney Simple Space/PNG/::1738082646
 effect_purple.png::CompressedTexture2D::4227672755293486021::1738067388::1738082646::1::::<><>::
 effect_yellow.png::CompressedTexture2D::1356767347773507964::1738067388::1738082646::1::::<><>::
 enemy_A.png::CompressedTexture2D::1618324478489784578::1738067388::1738082646::1::::<><>::
@@ -208,20 +208,23 @@ Tilemap_Elevation.png::CompressedTexture2D::4010671006116430896::1737815366::173
 Tilemap_Flat.png::CompressedTexture2D::7313414323739365472::1737815366::1737815394::1::::<><>::
 ::res://Assets/Trees/::1737992518
 Tree.png::CompressedTexture2D::2916534405968907530::1737815366::1737992518::1::::<><>::
-::res://Scenes/::1737998149
-gui.tscn::PackedScene::673729927372325562::1737998149::0::1::::<><>::
-player.tscn::PackedScene::5676679192370040276::1737998149::0::1::::<><>::res://Scripts/player.gd<>uid://bstkivql0m4ym::::res://icon.svg
-::res://Scenes/Levels/::1737998149
-level.tscn::PackedScene::6278752819058097147::1737998149::0::1::::<><>::uid://cm43cu6p2wysq::::res://Scenes/player.tscn<>uid://bxe2fvk8pibcy::::res://Assets/Terrain/Ground/Tilemap_Elevation.png<>uid://dcgw4ooa57t6w::::res://Assets/Terrain/Ground/Tilemap_Flat.png<>uid://jumh65lh46d7::::res://Scenes/gui.tscn<>uid://c06ypj5aoja3y::::res://Scenes/Props/ore_node.tscn<>uid://dg65q62kaeauq::::res://Scenes/Props/ore_depot.tscn
-::res://Scenes/Props/::1737998149
+::res://Scenes/::1738086559
+gui.tscn::PackedScene::673729927372325562::1738086559::0::1::::<><>::res://Scripts/gui.gd
+player.tscn::PackedScene::5676679192370040276::1738086559::0::1::::<><>::res://Scripts/player.gd<>uid://dh1dg4id3jkeb::::res://Assets/Kenney Simple Space/PNG/ship_sidesB.png
+::res://Scenes/Levels/::1738086559
+level.tscn::PackedScene::6278752819058097147::1738086559::0::1::::<><>::uid://cm43cu6p2wysq::::res://Scenes/player.tscn<>uid://bxe2fvk8pibcy::::res://Assets/Terrain/Ground/Tilemap_Elevation.png<>uid://dcgw4ooa57t6w::::res://Assets/Terrain/Ground/Tilemap_Flat.png<>uid://jumh65lh46d7::::res://Scenes/gui.tscn<>uid://c06ypj5aoja3y::::res://Scenes/Props/ore_node.tscn<>uid://dg65q62kaeauq::::res://Scenes/Props/ore_depot.tscn<>uid://qrx6pcs4cnlf::::res://Scenes/Props/recharge_station.tscn
+::res://Scenes/Props/::1738086655
 laser.tscn::PackedScene::5675498192735798572::1737897861::0::1::::<><>::res://Scripts/laser.gd<>uid://chd2brma2ww0b::::res://Assets/Circle.png
-ore_depot.tscn::PackedScene::7646242576156908632::1737998149::0::1::::<><>::res://Scripts/ore_depot.gd<>uid://duk4mlq0u5ob8::::res://Assets/Buildings/building_2/building_2 Sprite.png
-ore_node.tscn::PackedScene::6593042682521180536::1737998149::0::1::::<><>::res://Scripts/ore_node.gd<>uid://bxe2fvk8pibcy::::res://Assets/Terrain/Ground/Tilemap_Elevation.png
-photon.tscn::PackedScene::9120193229526418454::1737998149::0::1::::<><>::res://Scripts/photon.gd<>uid://chd2brma2ww0b::::res://Assets/Circle.png
-::res://Scripts/::1737997926
-global.gd::GDScript::-1::1737997779::0::1::::<>Node<>::
+ore_depot.tscn::PackedScene::7646242576156908632::1738086559::0::1::::<><>::res://Scripts/ore_depot.gd<>uid://duk4mlq0u5ob8::::res://Assets/Buildings/building_2/building_2 Sprite.png
+ore_node.tscn::PackedScene::6593042682521180536::1738085880::0::1::::<><>::res://Scripts/ore_node.gd<>uid://b4rs63sin36re::::res://Assets/Kenney Simple Space/PNG/meteor_squareDetailedLarge.png
+photon.tscn::PackedScene::9120193229526418454::1738085880::0::1::::<><>::res://Scripts/photon.gd<>uid://cjyv5v4t08fx4::::res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png
+recharge_station.tscn::PackedScene::1159568562268761167::1738086655::0::1::::<><>::uid://kpfw57mtiwb3::::res://Assets/Buildings/building_1/building_1 animation.png<>res://Scripts/recharge_station.gd
+::res://Scripts/::1738086655
+global.gd::GDScript::-1::1738086467::0::1::::<>Node<>::
+gui.gd::GDScript::-1::1738084489::0::1::::<>CanvasLayer<>::
 laser.gd::GDScript::-1::1737896792::0::1::::<>Area2D<>::
-ore_depot.gd::GDScript::-1::1737997369::0::1::::<>StaticBody2D<>::
-ore_node.gd::GDScript::-1::1737997926::0::1::::<>StaticBody2D<>::
+ore_depot.gd::GDScript::-1::1738085966::0::1::::<>StaticBody2D<>::
+ore_node.gd::GDScript::-1::1738085775::0::1::::<>StaticBody2D<>::
 photon.gd::GDScript::-1::1737900538::0::1::::<>Area2D<>::
-player.gd::GDScript::-1::1737997909::0::1::::<>CharacterBody2D<>::
+player.gd::GDScript::-1::1738085916::0::1::::<>CharacterBody2D<>::
+recharge_station.gd::GDScript::-1::1738086655::0::1::::<>StaticBody2D<>::

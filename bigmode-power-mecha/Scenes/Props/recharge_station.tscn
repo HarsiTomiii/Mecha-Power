@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://qrx6pcs4cnlf"]
+[gd_scene load_steps=10 format=3 uid="uid://qrx6pcs4cnlf"]
 
 [ext_resource type="Texture2D" uid="uid://kpfw57mtiwb3" path="res://Assets/Buildings/building_1/building_1 animation.png" id="1_a56ke"]
 [ext_resource type="Script" path="res://Scripts/recharge_station.gd" id="1_msmvl"]
@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4l1g3"]
 radius = 55.0364
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfn05"]
+radius = 30.8058
+
 [node name="RechargeStation" type="StaticBody2D"]
 collision_mask = 255
 script = ExtResource("1_msmvl")
@@ -61,6 +64,13 @@ polygon = PackedVector2Array(-24, 56, -5, 61, 15, 57, 33, 47, 32, 30, 13, 27, -1
 position = Vector2(-3, 44)
 shape = SubResource("CircleShape2D_4l1g3")
 
-[node name="RechargeTimer" type="Timer" parent="."]
+[node name="CollisionArea" type="Area2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(0, 36)
+shape = SubResource("CircleShape2D_dfn05")
+debug_color = Color(0.821879, 0.320126, 0.623512, 0.42)
 
 [connection signal="body_entered" from="RechargeArea" to="." method="_on_recharge_area_body_entered"]
+[connection signal="area_shape_entered" from="CollisionArea" to="." method="_on_collision_area_area_shape_entered"]
