@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://dfn67uybapci7"]
+
+[ext_resource type="Script" path="res://Scripts/battery.gd" id="1_47ly1"]
+[ext_resource type="Texture2D" uid="uid://cpy83jglnbkvr" path="res://Assets/Buildings/power stations/battery or reactor/openning animation sheet.png" id="2_hcj36"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1cs0"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_and8q"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(92, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ihax"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(184, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bux8f"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(276, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3acws"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(368, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0q6o"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(460, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnkm7"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(552, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1q4l"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(644, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcohr"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(736, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05dhl"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(828, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8qp6"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(920, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdbre"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(1012, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd8py"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(1104, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bgk5"]
+atlas = ExtResource("2_hcj36")
+region = Rect2(1196, 0, 92, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ep6fb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1cs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_and8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ihax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bux8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3acws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0q6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnkm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1q4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcohr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05dhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8qp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdbre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd8py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bgk5")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lxgaw"]
+radius = 15.0
+height = 60.0
+
+[node name="Battery" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 32
+collision_mask = 255
+script = ExtResource("1_47ly1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -36)
+sprite_frames = SubResource("SpriteFrames_ep6fb")
+animation = &"charging"
+frame_progress = 0.15685
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(3, -61)
+polygon = PackedVector2Array(-18, 56, -3, 62, 14, 57, 13, 46, 0, 44, -17, 46)
+
+[node name="CollisionArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(1, -29)
+shape = SubResource("CapsuleShape2D_lxgaw")
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_area_entered"]

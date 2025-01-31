@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4svj3egy8on4"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_photon.gd" id="1_ru7pq"]
+[ext_resource type="Texture2D" uid="uid://cjyv5v4t08fx4" path="res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png" id="2_ey2i8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulho8"]
+
+[node name="Photon" type="Area2D" groups=["fighter"]]
+top_level = true
+collision_layer = 16
+collision_mask = 255
+script = ExtResource("1_ru7pq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.772549)
+self_modulate = Color(0, 0.611743, 0.942581, 1)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ey2i8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_ulho8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
+texture = ExtResource("2_ey2i8")
+texture_scale = 0.1

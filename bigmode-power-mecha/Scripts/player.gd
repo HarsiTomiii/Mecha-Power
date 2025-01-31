@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 
-@export var speed : float = 600.0
-@export var health : int = 150
-@export var max_health : int = 200
+@export var speed : float = 25000.0
+@export var health : int = 500
+@export var max_health : int = 500
 @export var charge_level : float = 50.0
 @export var max_charge_level : float = 100.0
 @export var drain_rate : float = 1.0 # how many charge per second 
@@ -23,6 +23,7 @@ var is_shooting : bool = false
 func _ready() -> void:
 	charge_level = max_charge_level
 	
+	
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shooting_left") and photon_cooldown.is_stopped():
@@ -40,15 +41,16 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if is_shooting:
-		velocity = input_direction * speed * 0.5 #decreasing movement speed while shooting
+		velocity = input_direction * speed * 0.5 * delta #decreasing movement speed while shooting
 	else:
-		velocity = input_direction * speed
+		velocity = input_direction * speed * delta
 		
 	move_and_slide()
 	charge_level_update()
 
 
 func shooting(damage) -> void:
+	photon_cooldown.wait_time = Global.photon_cooldown
 	photon_cooldown.start()
 	var photon_temp = photon_scene.instantiate()
 	var target_position = (get_global_mouse_position() - self.global_position).normalized()
@@ -87,13 +89,20 @@ func recharging():
 	if Global.current_base_charge <= 0:
 		pass
 	else:
-		var missing_charge : int = max_charge_level - charge_level
+		var missing_charge : int = float(max_charge_level) - charge_level
 		if missing_charge > Global.current_base_charge:
 			missing_charge = Global.current_base_charge
 		else:
-			missing_charge
+			missing_charge = missing_charge
 		for i in missing_charge:
 			await get_tree().create_timer(Global.deposit_time_tick).timeout
 			charge_level += 1
 			Global.current_base_charge -= 1
 			charge_level_update()
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("fighter"):
+		area.queue_free()
+		health -= area.damage
+		gui.update_gui()

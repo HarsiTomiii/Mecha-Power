@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm43cu6p2wysq"]
+[gd_scene load_steps=5 format=3 uid="uid://cm43cu6p2wysq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8b3s6"]
 [ext_resource type="Texture2D" uid="uid://dh1dg4id3jkeb" path="res://Assets/Kenney Simple Space/PNG/ship_sidesB.png" id="2_tiqsc"]
@@ -6,8 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxn32"]
 radius = 66.7533
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yelxa"]
+size = Vector2(74, 74)
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 15
+collision_mask = 255
 script = ExtResource("1_8b3s6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,10 +27,17 @@ rotation = 1.5708
 texture = ExtResource("2_tiqsc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -5000
+limit_right = 5000
+limit_bottom = 5000
+limit_smoothed = true
 
 [node name="Cannon_1" type="Marker2D" parent="."]
+position = Vector2(49, 0)
 
 [node name="Cannon_2" type="Marker2D" parent="."]
+position = Vector2(49, 0)
 
 [node name="PhotonCooldown" type="Timer" parent="."]
 wait_time = 0.8
@@ -37,4 +47,11 @@ one_shot = true
 wait_time = 0.2
 autostart = true
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_yelxa")
+
 [connection signal="timeout" from="ChargeDrainTimer" to="." method="_on_charge_drain_timer_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

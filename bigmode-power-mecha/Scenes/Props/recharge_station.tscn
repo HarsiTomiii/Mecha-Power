@@ -40,31 +40,36 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4l1g3"]
-radius = 55.0364
+radius = 61.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfn05"]
 radius = 30.8058
 
 [node name="RechargeStation" type="StaticBody2D"]
+y_sort_enabled = true
 collision_mask = 255
 script = ExtResource("1_msmvl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_pl6ps")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.399085
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -45)
 polygon = PackedVector2Array(-24, 56, -5, 61, 15, 57, 33, 47, 32, 30, 13, 27, -11, 26, -25, 30, -30, 42)
 
 [node name="RechargeArea" type="Area2D" parent="."]
+position = Vector2(0, -52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RechargeArea"]
-position = Vector2(-3, 44)
+position = Vector2(0, 42)
 shape = SubResource("CircleShape2D_4l1g3")
 
 [node name="CollisionArea" type="Area2D" parent="."]
+position = Vector2(0, -41)
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
