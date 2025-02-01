@@ -102,7 +102,7 @@ func recharging():
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	if area.is_in_group("fighter"):
+	if area.is_in_group("enemy_fighter"):
 		area.queue_free()
 		health -= area.damage
 		gui.update_gui()

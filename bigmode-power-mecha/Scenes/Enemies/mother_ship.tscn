@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=3 uid="uid://dye8jhp60o3w1"]
+
+[ext_resource type="Script" path="res://Scripts/mother_ship.gd" id="1_4av0i"]
+[ext_resource type="Texture2D" uid="uid://ctnjpa0s8yct" path="res://Assets/Kenney Simple Space/PNG/enemy_E.png" id="1_g58f0"]
+[ext_resource type="Texture2D" uid="uid://cjyv5v4t08fx4" path="res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png" id="2_ex74g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62akw"]
+size = Vector2(93.3381, 101.823)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7uq68"]
+radius = 44.0454
+
+[node name="MotherShip" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_4av0i")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0.227451, 0.227451, 0.227451, 0.431373)
+position = Vector2(10, 7)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_g58f0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("1_g58f0")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_62akw")
+debug_color = Color(0.937933, 0.0951003, 0.571469, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7uq68")
+
+[node name="Orbit_01" type="Node2D" parent="."]
+rotation = 1.84754
+
+[node name="PointLight2D" type="PointLight2D" parent="Orbit_01"]
+position = Vector2(-52.6041, -180.079)
+rotation = -1.84754
+scale = Vector2(1, 1)
+energy = 2.78
+shadow_enabled = true
+shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
+texture = ExtResource("2_ex74g")
+texture_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbit_01"]
+modulate = Color(1, 1, 1, 0.772549)
+self_modulate = Color(0.428468, 0.749339, 1, 1)
+position = Vector2(-52.6041, -180.079)
+rotation = -0.276743
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ex74g")
+
+[node name="Spawn_1" type="Marker2D" parent="Orbit_01"]
+
+[node name="Orbit_02" type="Node2D" parent="."]
+rotation = 4.57256
+
+[node name="PointLight2D" type="PointLight2D" parent="Orbit_02"]
+position = Vector2(-70.8883, -212.182)
+rotation = -1.84754
+scale = Vector2(1, 1)
+energy = 2.78
+shadow_enabled = true
+shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
+texture = ExtResource("2_ex74g")
+texture_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbit_02"]
+modulate = Color(1, 1, 1, 0.772549)
+self_modulate = Color(0.428468, 0.749339, 1, 1)
+position = Vector2(-70.8883, -212.182)
+rotation = -0.276743
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ex74g")
+
+[node name="Spawn_2" type="Marker2D" parent="Orbit_02"]
+
+[node name="Orbit_03" type="Node2D" parent="."]
+rotation = 6.23568
+
+[node name="PointLight2D" type="PointLight2D" parent="Orbit_03"]
+position = Vector2(-43.5104, -128.79)
+rotation = -1.84754
+scale = Vector2(1, 1)
+energy = 2.78
+shadow_enabled = true
+shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
+texture = ExtResource("2_ex74g")
+texture_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbit_03"]
+modulate = Color(1, 1, 1, 0.772549)
+self_modulate = Color(0.428468, 0.749339, 1, 1)
+position = Vector2(-43.5104, -128.79)
+rotation = -0.276743
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ex74g")
+
+[node name="Spawn_3" type="Marker2D" parent="Orbit_03"]
+
+[node name="Orbit_04" type="Node2D" parent="."]
+rotation = 3.10148
+
+[node name="PointLight2D" type="PointLight2D" parent="Orbit_04"]
+position = Vector2(-56.4254, -147.684)
+rotation = -1.84754
+scale = Vector2(1, 1)
+energy = 2.78
+shadow_enabled = true
+shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
+texture = ExtResource("2_ex74g")
+texture_scale = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="Orbit_04"]
+modulate = Color(1, 1, 1, 0.772549)
+self_modulate = Color(0.428468, 0.749339, 1, 1)
+position = Vector2(-56.4254, -147.684)
+rotation = -0.276743
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ex74g")
+
+[node name="Spawn_4" type="Marker2D" parent="Orbit_04"]
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

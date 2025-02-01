@@ -34,10 +34,10 @@ limit_bottom = 5000
 limit_smoothed = true
 
 [node name="Cannon_1" type="Marker2D" parent="."]
-position = Vector2(49, 0)
+position = Vector2(62, 0)
 
 [node name="Cannon_2" type="Marker2D" parent="."]
-position = Vector2(49, 0)
+position = Vector2(62, 0)
 
 [node name="PhotonCooldown" type="Timer" parent="."]
 wait_time = 0.8

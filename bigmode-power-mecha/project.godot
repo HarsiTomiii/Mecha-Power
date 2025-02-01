@@ -27,6 +27,7 @@ window/stretch/mode="viewport"
 
 miner="Projectiles that can mine"
 fighter="Projectiles that can damage enemies"
+enemy_fighter=""
 
 [input]
 

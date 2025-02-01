@@ -5,10 +5,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ulho8"]
 
-[node name="Photon" type="Area2D" groups=["fighter"]]
+[node name="Photon" type="Area2D" groups=["enemy_fighter"]]
 top_level = true
 collision_layer = 16
-collision_mask = 255
+collision_mask = 253
 script = ExtResource("1_ru7pq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

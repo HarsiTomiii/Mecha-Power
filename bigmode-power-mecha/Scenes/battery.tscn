@@ -114,7 +114,6 @@ radius = 15.0
 height = 60.0
 
 [node name="Battery" type="StaticBody2D"]
-y_sort_enabled = true
 collision_layer = 32
 collision_mask = 255
 script = ExtResource("1_47ly1")

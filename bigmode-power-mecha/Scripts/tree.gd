@@ -6,6 +6,6 @@ func _on_hit_zone_area_entered(area: Area2D) -> void:
 		Global.collected_ore += 2
 		area.queue_free()
 		self.queue_free()
-	elif area.is_in_group("fighter"):
+	elif area.is_in_group("fighter") or area.is_in_group("enemy_fighter"):
 		self.queue_free()
 		area.queue_free()

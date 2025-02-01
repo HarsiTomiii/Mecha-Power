@@ -46,7 +46,6 @@ radius = 61.0
 radius = 30.8058
 
 [node name="RechargeStation" type="StaticBody2D"]
-y_sort_enabled = true
 collision_mask = 255
 script = ExtResource("1_msmvl")
 

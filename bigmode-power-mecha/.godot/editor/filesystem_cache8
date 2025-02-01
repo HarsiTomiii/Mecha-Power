@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1738320470
+::res://::1738425843
 icon.svg::CompressedTexture2D::3689665631024651264::1737807701::1737807707::1::::<><>::
 ::res://Assets/::1738082542
 Circle.png::CompressedTexture2D::5271998462184785035::1737891450::1737891512::1::::<><>::
@@ -25,10 +25,10 @@ advanced furnace opening and closing.png::CompressedTexture2D::53879166951948168
 advanced furnace.png::CompressedTexture2D::3906812862841584187::1730889872::1737992518::1::::<><>::
 ::res://Assets/Buildings/liguid Tank/::1737992518
 Tank.png::CompressedTexture2D::7353599601434322917::1730195562::1737992518::1::::<><>::
-::res://Assets/Buildings/power stations/::1737992590
+::res://Assets/Buildings/power stations/::1738425843
 all animations sprite sheet.png::CompressedTexture2D::3453130884089899826::1730889339::1737992590::1::::<><>::
-::res://Assets/Buildings/power stations/battery or reactor/::1737992589
-closing animation sheet.png::CompressedTexture2D::5638581894391993017::1730889060::1737992518::1::::<><>::
+closing animation sheet.png::CompressedTexture2D::5638581894391993017::1730889060::1738425844::1::::<><>::
+::res://Assets/Buildings/power stations/battery or reactor/::1738425843
 opened idle animation sheet.png::CompressedTexture2D::8940623420348864949::1730889101::1737992518::1::::<><>::
 openning animation sheet.png::CompressedTexture2D::5877273233540944315::1730889078::1737992518::1::::<><>::
 ::res://Assets/Deco/::1737815375
@@ -208,32 +208,33 @@ Tilemap_Elevation.png::CompressedTexture2D::4010671006116430896::1737815366::173
 Tilemap_Flat.png::CompressedTexture2D::7313414323739365472::1737815366::1737815394::1::::<><>::
 ::res://Assets/Trees/::1737992518
 Tree.png::CompressedTexture2D::2916534405968907530::1737815366::1737992518::1::::<><>::
-::res://Scenes/::1738326551
-battery.tscn::PackedScene::7538983639841295696::1738326551::0::1::::<><>::res://Scripts/battery.gd<>uid://cpy83jglnbkvr::::res://Assets/Buildings/power stations/battery or reactor/openning animation sheet.png
-gui.tscn::PackedScene::673729927372325562::1738326551::0::1::::<><>::res://Scripts/gui.gd
-player.tscn::PackedScene::5676679192370040276::1738326551::0::1::::<><>::res://Scripts/player.gd<>uid://dh1dg4id3jkeb::::res://Assets/Kenney Simple Space/PNG/ship_sidesB.png
-::res://Scenes/Enemies/::1738326551
-creep.tscn::PackedScene::1655217062627901186::1738326569::0::1::::<><>::res://Scripts/creep.gd<>uid://xb6tkjxookde::::res://Assets/Kenney Simple Space/PNG/enemy_A.png
-::res://Scenes/Levels/::1738326551
-level.tscn::PackedScene::6278752819058097147::1738326551::0::1::::<><>::res://Scripts/level.gd<>uid://cm43cu6p2wysq::::res://Scenes/player.tscn<>uid://bxe2fvk8pibcy::::res://Assets/Terrain/Ground/Tilemap_Elevation.png<>uid://dcgw4ooa57t6w::::res://Assets/Terrain/Ground/Tilemap_Flat.png<>uid://jumh65lh46d7::::res://Scenes/gui.tscn<>uid://dg65q62kaeauq::::res://Scenes/Props/ore_depot.tscn<>uid://xt2gh1fb05ek::::res://Scenes/Enemies/creep.tscn<>uid://qrx6pcs4cnlf::::res://Scenes/Props/recharge_station.tscn<>uid://dfn67uybapci7::::res://Scenes/battery.tscn
-::res://Scenes/Props/::1738326551
+::res://Scenes/::1738425800
+battery.tscn::PackedScene::7538983639841295696::1738329114::0::1::::<><>::res://Scripts/battery.gd<>uid://cpy83jglnbkvr::::res://Assets/Buildings/power stations/battery or reactor/openning animation sheet.png
+gui.tscn::PackedScene::673729927372325562::1738329114::0::1::::<><>::res://Scripts/gui.gd
+player.tscn::PackedScene::5676679192370040276::1738425800::0::1::::<><>::res://Scripts/player.gd<>uid://dh1dg4id3jkeb::::res://Assets/Kenney Simple Space/PNG/ship_sidesB.png
+::res://Scenes/Enemies/::1738329115
+creep.tscn::PackedScene::1655217062627901186::1738329115::0::1::::<><>::res://Scripts/creep.gd<>uid://xb6tkjxookde::::res://Assets/Kenney Simple Space/PNG/enemy_A.png
+::res://Scenes/Levels/::1738425742
+level.tscn::PackedScene::6278752819058097147::1738425742::0::1::::<><>::res://Scripts/level.gd<>uid://cm43cu6p2wysq::::res://Scenes/player.tscn<>uid://bxe2fvk8pibcy::::res://Assets/Terrain/Ground/Tilemap_Elevation.png<>uid://dcgw4ooa57t6w::::res://Assets/Terrain/Ground/Tilemap_Flat.png<>uid://jumh65lh46d7::::res://Scenes/gui.tscn<>uid://dg65q62kaeauq::::res://Scenes/Props/ore_depot.tscn<>uid://qrx6pcs4cnlf::::res://Scenes/Props/recharge_station.tscn<>uid://dfn67uybapci7::::res://Scenes/battery.tscn
+::res://Scenes/Props/::1738329115
+enemy_photon.tscn::PackedScene::4460348554901375959::1738329115::0::1::::<><>::res://Scripts/enemy_photon.gd<>uid://cjyv5v4t08fx4::::res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png
 laser.tscn::PackedScene::5675498192735798572::1737897861::0::1::::<><>::res://Scripts/laser.gd<>uid://chd2brma2ww0b::::res://Assets/Circle.png
-ore_depot.tscn::PackedScene::7646242576156908632::1738326551::0::1::::<><>::res://Scripts/ore_depot.gd<>uid://duk4mlq0u5ob8::::res://Assets/Buildings/building_2/building_2 Sprite.png
-ore_node.tscn::PackedScene::6593042682521180536::1738326551::0::1::::<><>::res://Scripts/ore_node.gd<>uid://b4rs63sin36re::::res://Assets/Kenney Simple Space/PNG/meteor_squareDetailedLarge.png
+ore_depot.tscn::PackedScene::7646242576156908632::1738329114::0::1::::<><>::res://Scripts/ore_depot.gd<>uid://duk4mlq0u5ob8::::res://Assets/Buildings/building_2/building_2 Sprite.png
+ore_node.tscn::PackedScene::6593042682521180536::1738329114::0::1::::<><>::res://Scripts/ore_node.gd<>uid://b4rs63sin36re::::res://Assets/Kenney Simple Space/PNG/meteor_squareDetailedLarge.png
 photon.tscn::PackedScene::9120193229526418454::1738085880::0::1::::<><>::res://Scripts/photon.gd<>uid://cjyv5v4t08fx4::::res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png
-recharge_station.tscn::PackedScene::1159568562268761167::1738326551::0::1::::<><>::uid://kpfw57mtiwb3::::res://Assets/Buildings/building_1/building_1 animation.png<>res://Scripts/recharge_station.gd
-enemy_photon.tscn::PackedScene::4460348554901375959::1738326620::0::1::::<><>::res://Scripts/photon.gd<>uid://cjyv5v4t08fx4::::res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png
-tree.tscn::PackedScene::4377610069801332223::1738326551::0::1::::<><>::res://Scripts/tree.gd<>uid://bhs15pi51x05s::::res://Assets/Trees/Tree.png
-::res://Scripts/::1738326551
+recharge_station.tscn::PackedScene::1159568562268761167::1738329114::0::1::::<><>::uid://kpfw57mtiwb3::::res://Assets/Buildings/building_1/building_1 animation.png<>res://Scripts/recharge_station.gd
+tree.tscn::PackedScene::4377610069801332223::1738329114::0::1::::<><>::res://Scripts/tree.gd<>uid://bhs15pi51x05s::::res://Assets/Trees/Tree.png
+::res://Scripts/::1738329175
 battery.gd::GDScript::-1::1738322824::0::1::::<>StaticBody2D<>::
+creep.gd::GDScript::-1::1738329083::0::1::::<>CharacterBody2D<>::
+enemy_photon.gd::GDScript::-1::1738326663::0::1::::<>Area2D<>::
 global.gd::GDScript::-1::1738326107::0::1::::<>Node<>::
-gui.gd::GDScript::-1::1738326208::0::1::::<>CanvasLayer<>::
+gui.gd::GDScript::-1::1738329007::0::1::::<>CanvasLayer<>::
 laser.gd::GDScript::-1::1737896792::0::1::::<>Area2D<>::
 level.gd::GDScript::-1::1738326266::0::1::::<>Node<>::
 ore_depot.gd::GDScript::-1::1738324484::0::1::::<>StaticBody2D<>::
 ore_node.gd::GDScript::-1::1738324355::0::1::::<>StaticBody2D<>::
 photon.gd::GDScript::-1::1738320577::0::1::::<>Area2D<>::
-player.gd::GDScript::-1::1738324821::0::1::::<>CharacterBody2D<>::
+player.gd::GDScript::-1::1738329175::0::1::::<>CharacterBody2D<>::
 recharge_station.gd::GDScript::-1::1738172800::0::1::::<>StaticBody2D<>::
-creep.gd::GDScript::-1::1738326551::0::1::::<>CharacterBody2D<>::
-tree.gd::GDScript::-1::1738318315::0::1::::<>StaticBody2D<>::
+tree.gd::GDScript::-1::1738328256::0::1::::<>StaticBody2D<>::
