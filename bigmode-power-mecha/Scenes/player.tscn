@@ -1,7 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm43cu6p2wysq"]
+[gd_scene load_steps=10 format=3 uid="uid://cm43cu6p2wysq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8b3s6"]
 [ext_resource type="Texture2D" uid="uid://dh1dg4id3jkeb" path="res://Assets/Kenney Simple Space/PNG/ship_sidesB.png" id="2_tiqsc"]
+[ext_resource type="AudioStream" uid="uid://caxcwbogpa6og" path="res://Assets/Audio/spaceEngine_003.ogg" id="3_i5mos"]
+[ext_resource type="AudioStream" uid="uid://73c6tpbkgduf" path="res://Assets/Audio/laserLarge_004.ogg" id="4_7fb2x"]
+[ext_resource type="AudioStream" uid="uid://0yusjpbxnknb" path="res://Assets/Audio/forceField_000.ogg" id="5_lyiuu"]
+
+[sub_resource type="Curve" id="Curve_5wkwc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_b5g32"]
+offsets = PackedFloat32Array(0.421277, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.721569, 1, 0.996078, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxn32"]
 radius = 66.7533
@@ -12,6 +23,17 @@ size = Vector2(74, 74)
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 255
 script = ExtResource("1_8b3s6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 20
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_5wkwc")
+color_ramp = SubResource("Gradient_b5g32")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mxn32")
@@ -44,7 +66,6 @@ wait_time = 0.8
 one_shot = true
 
 [node name="ChargeDrainTimer" type="Timer" parent="."]
-wait_time = 0.2
 autostart = true
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -52,6 +73,19 @@ collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_yelxa")
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i5mos")
+volume_db = -10.0
+pitch_scale = 0.6
+autoplay = true
+
+[node name="ShootingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7fb2x")
+
+[node name="GettingHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lyiuu")
+volume_db = -10.0
 
 [connection signal="timeout" from="ChargeDrainTimer" to="." method="_on_charge_drain_timer_timeout"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

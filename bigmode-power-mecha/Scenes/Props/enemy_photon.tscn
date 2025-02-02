@@ -1,15 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4svj3egy8on4"]
+[gd_scene load_steps=6 format=3 uid="uid://b4svj3egy8on4"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_photon.gd" id="1_ru7pq"]
 [ext_resource type="Texture2D" uid="uid://cjyv5v4t08fx4" path="res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png" id="2_ey2i8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ulho8"]
 
+[sub_resource type="Curve" id="Curve_qrbcu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jiv3x"]
+offsets = PackedFloat32Array(0, 0.421277, 1)
+colors = PackedColorArray(2.88785e-06, 0.636538, 0.647353, 1, 1, 1, 1, 1, 0.721569, 1, 0.996078, 0)
+
 [node name="Photon" type="Area2D" groups=["enemy_fighter"]]
 top_level = true
 collision_layer = 16
 collision_mask = 253
 script = ExtResource("1_ru7pq")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
+texture = ExtResource("2_ey2i8")
+texture_scale = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.772549)
@@ -22,8 +36,13 @@ texture = ExtResource("2_ey2i8")
 rotation = 1.5708
 shape = SubResource("CircleShape2D_ulho8")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-shadow_enabled = true
-shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
-texture = ExtResource("2_ey2i8")
-texture_scale = 0.1
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_qrbcu")
+color_ramp = SubResource("Gradient_jiv3x")

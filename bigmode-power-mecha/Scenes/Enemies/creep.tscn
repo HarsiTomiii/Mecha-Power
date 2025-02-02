@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://xt2gh1fb05ek"]
+[gd_scene load_steps=9 format=3 uid="uid://xt2gh1fb05ek"]
 
 [ext_resource type="Script" path="res://Scripts/creep.gd" id="1_ld4rr"]
 [ext_resource type="Texture2D" uid="uid://xb6tkjxookde" path="res://Assets/Kenney Simple Space/PNG/enemy_A.png" id="2_kvle3"]
+[ext_resource type="AudioStream" uid="uid://s2xwm06tkocp" path="res://Assets/Audio/laserLarge_003.ogg" id="3_0db5w"]
+[ext_resource type="AudioStream" uid="uid://bpqh55y7ktaff" path="res://Assets/Audio/spaceEngine_002.ogg" id="4_mtx85"]
+[ext_resource type="AudioStream" uid="uid://bvu47enaahxu6" path="res://Assets/Audio/explosionCrunch_002.ogg" id="5_4vd4k"]
+[ext_resource type="AudioStream" uid="uid://bhcjoke8dyd37" path="res://Assets/Audio/forceField_003.ogg" id="6_qun53"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mxn32"]
 radius = 66.7533
@@ -32,7 +36,6 @@ texture = ExtResource("2_kvle3")
 position = Vector2(54, 0)
 
 [node name="PhotonCooldown" type="Timer" parent="."]
-autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 150.0
@@ -45,6 +48,23 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_ih07p")
 debug_color = Color(0.717918, 0.440003, 0.526691, 0.42)
+
+[node name="ShootingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0db5w")
+pitch_scale = 3.5
+
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mtx85")
+volume_db = -10.0
+pitch_scale = 0.6
+autoplay = true
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4vd4k")
+
+[node name="GettingHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qun53")
+volume_db = -15.0
 
 [connection signal="timeout" from="PhotonCooldown" to="." method="_on_photon_cooldown_timeout"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

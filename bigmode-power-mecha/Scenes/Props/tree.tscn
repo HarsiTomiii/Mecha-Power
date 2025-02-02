@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3msulurp8y1t"]
+[gd_scene load_steps=8 format=3 uid="uid://b3msulurp8y1t"]
 
 [ext_resource type="Script" path="res://Scripts/tree.gd" id="1_guk2a"]
 [ext_resource type="Texture2D" uid="uid://bhs15pi51x05s" path="res://Assets/Trees/Tree.png" id="1_miu8f"]
+[ext_resource type="AudioStream" uid="uid://cq4c055iqha6c" path="res://Assets/Audio/impactMetal_003.ogg" id="3_i2ohl"]
 
 [sub_resource type="Animation" id="Animation_l2wii"]
 length = 0.001
@@ -45,7 +46,7 @@ _data = {
 radius = 16.0
 height = 162.0
 
-[node name="Tree" type="StaticBody2D"]
+[node name="Tree" type="StaticBody2D" groups=["Trees"]]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 255
@@ -75,5 +76,8 @@ collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitZone"]
 shape = SubResource("CapsuleShape2D_os1ny")
+
+[node name="GettingHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i2ohl")
 
 [connection signal="area_entered" from="HitZone" to="." method="_on_hit_zone_area_entered"]

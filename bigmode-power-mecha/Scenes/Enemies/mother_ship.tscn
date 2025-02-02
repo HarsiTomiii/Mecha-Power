@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dye8jhp60o3w1"]
+[gd_scene load_steps=9 format=3 uid="uid://dye8jhp60o3w1"]
 
 [ext_resource type="Script" path="res://Scripts/mother_ship.gd" id="1_4av0i"]
 [ext_resource type="Texture2D" uid="uid://ctnjpa0s8yct" path="res://Assets/Kenney Simple Space/PNG/enemy_E.png" id="1_g58f0"]
 [ext_resource type="Texture2D" uid="uid://cjyv5v4t08fx4" path="res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png" id="2_ex74g"]
+[ext_resource type="AudioStream" uid="uid://pg0ib1p4c1np" path="res://Assets/Audio/spaceEngineLow_000.ogg" id="4_b7bb7"]
+[ext_resource type="AudioStream" uid="uid://bhcjoke8dyd37" path="res://Assets/Audio/forceField_003.ogg" id="5_54gnn"]
+[ext_resource type="AudioStream" uid="uid://bvu47enaahxu6" path="res://Assets/Audio/explosionCrunch_002.ogg" id="6_keebm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62akw"]
 size = Vector2(93.3381, 101.823)
@@ -44,7 +47,6 @@ rotation = 1.84754
 [node name="PointLight2D" type="PointLight2D" parent="Orbit_01"]
 position = Vector2(-52.6041, -180.079)
 rotation = -1.84754
-scale = Vector2(1, 1)
 energy = 2.78
 shadow_enabled = true
 shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
@@ -67,7 +69,6 @@ rotation = 4.57256
 [node name="PointLight2D" type="PointLight2D" parent="Orbit_02"]
 position = Vector2(-70.8883, -212.182)
 rotation = -1.84754
-scale = Vector2(1, 1)
 energy = 2.78
 shadow_enabled = true
 shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
@@ -90,7 +91,6 @@ rotation = 6.23568
 [node name="PointLight2D" type="PointLight2D" parent="Orbit_03"]
 position = Vector2(-43.5104, -128.79)
 rotation = -1.84754
-scale = Vector2(1, 1)
 energy = 2.78
 shadow_enabled = true
 shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
@@ -113,7 +113,6 @@ rotation = 3.10148
 [node name="PointLight2D" type="PointLight2D" parent="Orbit_04"]
 position = Vector2(-56.4254, -147.684)
 rotation = -1.84754
-scale = Vector2(1, 1)
 energy = 2.78
 shadow_enabled = true
 shadow_color = Color(0.252028, 0.252028, 0.252028, 0)
@@ -129,5 +128,17 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ex74g")
 
 [node name="Spawn_4" type="Marker2D" parent="Orbit_04"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b7bb7")
+volume_db = -15.0
+pitch_scale = 1.47
+autoplay = true
+
+[node name="GettingHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_54gnn")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_keebm")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

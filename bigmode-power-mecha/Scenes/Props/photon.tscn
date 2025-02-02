@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d265irar5schq"]
+[gd_scene load_steps=6 format=3 uid="uid://d265irar5schq"]
 
 [ext_resource type="Script" path="res://Scripts/photon.gd" id="1_bq6h7"]
 [ext_resource type="Texture2D" uid="uid://cjyv5v4t08fx4" path="res://Assets/Kenney Particle Pack/PNG (Transparent)/star_09.png" id="2_we23h"]
+
+[sub_resource type="Curve" id="Curve_3ohfu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_t7ntl"]
+offsets = PackedFloat32Array(0, 0.421277, 1)
+colors = PackedColorArray(2.88785e-06, 0.636538, 0.647353, 1, 1, 1, 1, 1, 0.721569, 1, 0.996078, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ulho8"]
 
@@ -10,6 +18,17 @@ top_level = true
 collision_layer = 16
 collision_mask = 255
 script = ExtResource("1_bq6h7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_3ohfu")
+color_ramp = SubResource("Gradient_t7ntl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.772549)

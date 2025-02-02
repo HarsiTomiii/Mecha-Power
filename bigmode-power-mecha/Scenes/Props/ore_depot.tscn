@@ -10,7 +10,6 @@ radius = 116.039
 radius = 78.2588
 
 [node name="OreDepot" type="StaticBody2D"]
-scale = Vector2(1.5, 1.5)
 script = ExtResource("1_0uy8g")
 
 [node name="Shadow" type="Sprite2D" parent="."]

@@ -9,7 +9,6 @@ var shooting_range: int = 700
 @export var final_position: Vector2 = Vector2(0,0)
 @export var initial_postition: Vector2 = Vector2(0,0)
 
-
 func _physics_process(delta: float) -> void:
 	self.position += direction * speed * delta
 	if int(initial_postition.distance_to(self.global_position)) >= shooting_range:

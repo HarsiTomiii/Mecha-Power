@@ -4,13 +4,13 @@ extends StaticBody2D
 #var depot_capacity: int = 500
 
 @onready var ore_processing: float = $OreProcessingTimer.wait_time #process tick time
-@export var processing_rate: int = 4 #number of ore to power
-@export var power_rate: int = 3 #number of power from processing_rate
+@export var processing_rate: int = 3 #number of ore to power
+@export var power_rate: int = 1 #number of power from processing_rate
 @onready var gui: CanvasLayer = %GUI
 
 
 func _on_collision_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("miner") or area.is_in_group("fighter"):
+	if area.is_in_group("miner") or area.is_in_group("fighter") or area.is_in_group("trees") or area.is_in_group("nodes"):
 		area.queue_free()
 
 

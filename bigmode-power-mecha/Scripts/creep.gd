@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var detection_radius = 1000
 @export var health : int = 150
 @export var max_health : int = 200
+@export var exp_value : int = 10
 
 @onready var photon_scene: PackedScene = preload("res://Scenes/Props/enemy_photon.tscn")
 @onready var photon_cooldown: Timer = $PhotonCooldown
@@ -50,6 +51,8 @@ func pick_random_target():
 func check_for_player():
 	if position.distance_to(player.position) < detection_radius:
 		state = "chase"
+		photon_cooldown.start()
+
 
 func chase_player(delta):
 	var distance_to_player = position.distance_to(player.position)
@@ -81,15 +84,22 @@ func shooting(damage) -> void:
 	photon_temp.damage = damage
 	photon_temp.global_position = cannon_1.global_position
 	get_node("../../Projectiles").add_child(photon_temp)
+	$ShootingSound.play()
 
 func _on_photon_cooldown_timeout() -> void:
-	if position.distance_to(player.position) < 400:
+	if position.distance_to(player.position) < 400 and health > 0:
 		shooting(damage)
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fighter"):
 		area.queue_free()
 		health -= area.damage
+		$GettingHit.play()
 	if health <= 0:
+		Global.exp_collected += exp_value
 		Global.enemy_count -= 1
+		self.hide()
+		$HitBox.queue_free()
+		$Death.play()
+		await $Death.finished
 		self.queue_free()

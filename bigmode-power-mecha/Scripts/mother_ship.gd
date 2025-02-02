@@ -4,6 +4,7 @@ var health: int = 500
 var creep_spawn: PackedScene = preload("res://Scenes/Enemies/creep.tscn")
 @onready var gui: CanvasLayer = %GUI
 @onready var mother_ship_spawn: NavigationRegion2D = $"../../MotherShipSpawn"
+@onready var exp_value: int = 1000
 
 func _ready() -> void:
 	var polygon = mother_ship_spawn.navigation_polygon.get_vertices()
@@ -23,14 +24,21 @@ func _ready() -> void:
 	
 	# Set the position
 	position = Vector2(random_x, random_y)
+	print(position)
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("fighter"):
 		area.queue_free()
 		health -= area.damage
+		$GettingHit.play()
 		if health <= 0:
 			Global.enemy_count -= 1
+			$HitBox.queue_free()
+			$Death.play()
+			await $Death.finished
 			self.queue_free()
+			var game_over_text = "Congratulations!"
+			$"../..".game_over(game_over_text)
 
 func _process(delta: float) -> void:
 	self.rotation_degrees += 90 * delta
@@ -42,7 +50,7 @@ func _process(delta: float) -> void:
 func spawn_creeps(level):
 	var spawn_points = [$Orbit_01/Spawn_1, $Orbit_02/Spawn_2, $Orbit_03/Spawn_3, $Orbit_04/Spawn_4]
 
-	for i in level:
+	for i in (level * 1.5):
 		await get_tree().create_timer(0.5).timeout
 		var spawn_point = spawn_points[randi_range(0, spawn_points.size() - 1)]
 		var creep_temp = creep_spawn.instantiate()

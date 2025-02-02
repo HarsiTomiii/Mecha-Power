@@ -1,0 +1,15 @@
+res://Scenes/Enemies/creep.tscn::3c587b5cf7105cde6c5c9f5365e8a3d7::1738509572::res://.godot/exported/133200997/export-2d93f8557dbac3d7188f349a0aa61aca-creep.scn
+res://Scenes/Enemies/mother_ship.tscn::7c7b1ae0410b4108d30521932ea66981::1738509572::res://.godot/exported/133200997/export-9533eb40eb01a1f8eb0095a9829079dd-mother_ship.scn
+res://Scenes/Levels/level.tscn::4514db5dfe9384ecd6d11403995756ba::1738513145::res://.godot/exported/133200997/export-f4906329942c7016c08b53e16ecee32a-level.scn
+res://Scenes/Props/enemy_photon.tscn::7217cc460e1ffe9d154233446ecd5724::1738510080::res://.godot/exported/133200997/export-0a0e03efbae44f075423e999dc7add52-enemy_photon.scn
+res://Scenes/Props/laser.tscn::e227e58e61cca9703d0229d1e7c80452::1737897861::res://.godot/exported/133200997/export-3d8eef21cf26d17372d4520dedd484d8-laser.scn
+res://Scenes/Props/ore_depot.tscn::8dddab1dc46dace3949fef62da3f5bc9::1738513155::res://.godot/exported/133200997/export-53e5b48beefbe578d78bd132df304d1e-ore_depot.scn
+res://Scenes/Props/ore_node.tscn::210f20a83539d2eb89f761d3a2c60c8a::1738513145::res://.godot/exported/133200997/export-dfa8bcb421a018adffa29d63a738cf02-ore_node.scn
+res://Scenes/Props/photon.tscn::a62acf6606c5c8b720a8569d478b1add::1738513145::res://.godot/exported/133200997/export-d155cb65de7c91ca2b801b7798e902fc-photon.scn
+res://Scenes/Props/recharge_station.tscn::63d1d73b7b676db682354270784c4184::1738513145::res://.godot/exported/133200997/export-b1262d82959b5a819df67d80fc080dd5-recharge_station.scn
+res://Scenes/Props/tree.tscn::805d729d95158a4b508829b3c40cb77c::1738509572::res://.godot/exported/133200997/export-796c518ce7903a028055a52fb1ae59b9-tree.scn
+res://Scenes/battery.tscn::89e7bad2213cbcbe5a9f36d86e1ec658::1738489765::res://.godot/exported/133200997/export-ba46c44d069d37ecf820091d6fb11563-battery.scn
+res://Scenes/game_over.tscn::9af435369e3314987538037609149594::1738503587::res://.godot/exported/133200997/export-33c320c97f44f546398d5119030678b4-game_over.scn
+res://Scenes/gui.tscn::88db3e22ea204d23ccd2ee93dcbec7ea::1738503587::res://.godot/exported/133200997/export-6fa2297ac3b46430f7d7000f270f4dfb-gui.scn
+res://Scenes/main_menu.tscn::a6e2ed6f56f05a5f7a705f81ae98f2d7::1738513145::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
+res://Scenes/player.tscn::c576515599b4041965d5aa0e41ec74d1::1738513145::res://.godot/exported/133200997/export-1753c997600d68ab5d20ae99fddb15c6-player.scn
